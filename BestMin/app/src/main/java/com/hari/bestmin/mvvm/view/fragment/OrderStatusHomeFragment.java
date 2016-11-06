@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 
+import com.hari.bestmin.common.Constants;
 import com.hari.bestmin.mvvm.model.Product;
 import com.hari.bestmin.mvvm.view.adapter.HomePagerAdapter;
 
@@ -28,7 +29,7 @@ public class OrderStatusHomeFragment extends HomeFrgment {
         list.add("Pending");
         list.add("Closed");
 
-        viewPager.setAdapter(new HomePagerAdapter(getChildFragmentManager(), getActivity(), list));
+        viewPager.setAdapter(new HomePagerAdapter(getChildFragmentManager(), getActivity(), list, Constants.SectionType.ORDER));
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
     }

@@ -7,4 +7,6 @@
     <color name="orange">#FF9900</color>
     <color name="green">#009900</color>
     <color name="blue">#407BBB</color>
+
+    <color name="menu_item_background">#24407BBB</color>
 </resources>

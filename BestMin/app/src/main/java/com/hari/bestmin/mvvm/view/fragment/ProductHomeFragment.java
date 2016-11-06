@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.hari.bestmin.common.Constants;
 import com.hari.bestmin.mvvm.view.adapter.HomePagerAdapter;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class ProductHomeFragment extends HomeFrgment {
         list.add("Position 3");
         list.add("Position 4");
 
-        viewPager.setAdapter(new HomePagerAdapter(getChildFragmentManager(), getActivity(), list));
+        viewPager.setAdapter(new HomePagerAdapter(getChildFragmentManager(), getActivity(), list, Constants.SectionType.PRODUCT));
         tabLayout.setupWithViewPager(viewPager);
     }
 }
