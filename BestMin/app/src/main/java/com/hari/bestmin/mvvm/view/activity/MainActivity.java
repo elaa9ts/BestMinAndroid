@@ -6,6 +6,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 
 import com.hari.bestmin.R;
+import com.hari.bestmin.common.util.FragmentHelper;
+import com.hari.bestmin.mvvm.view.fragment.OrderStatusHomeFragment;
+import com.hari.bestmin.mvvm.view.fragment.ProductHomeFragment;
+import com.hari.bestmin.mvvm.view.fragment.ProductListFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -23,8 +27,8 @@ public class MainActivity extends BaseActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerToggle.syncState();
-        drawerLayout.addDrawerListener(drawerToggle
-        );
+        drawerLayout.addDrawerListener(drawerToggle);
 
+        FragmentHelper.addFragment(this, R.id.home_container, new OrderStatusHomeFragment());
     }
 }
