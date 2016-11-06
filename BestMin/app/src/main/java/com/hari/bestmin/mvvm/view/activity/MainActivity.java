@@ -35,7 +35,6 @@ public class MainActivity extends BaseActivity implements ClickEvents.LeftMenuIt
         drawerLayout.addDrawerListener(drawerToggle);
 
         FragmentHelper.addFragment(this, R.id.navigation_view, new MenuFragment());
-        FragmentHelper.addFragment(this, R.id.home_container, new ProductHomeFragment());
     }
 
     @Override

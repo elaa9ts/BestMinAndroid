@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hari.bestmin.R;
@@ -20,6 +21,7 @@ public class MenuAdapter extends BaseAdapter {
     private List<String> list;
     private Context context;
     private LayoutInflater layoutInflater;
+    private int selectedPosition;
 
     public MenuAdapter(Context context, List<String> list) {
         this.list = list;
@@ -54,15 +56,27 @@ public class MenuAdapter extends BaseAdapter {
             viewHolder = (ListViewHolder) convertView.getTag();
         }
         viewHolder.textView.setText(list.get(position));
+
+        if(selectedPosition == position){
+            viewHolder.relativeLayout.setBackgroundColor(context.getResources().getColor(R.color.green));
+        }else {
+            viewHolder.relativeLayout.setBackgroundColor(context.getResources().getColor(R.color.menu_item_background));
+        }
         return convertView;
     }
 
+    public void setSelectedState(int position){
+        selectedPosition = position;
+        notifyDataSetChanged();
+    }
     private class ListViewHolder {
 
         public TextView textView;
+        public LinearLayout relativeLayout;
 
         public ListViewHolder(View item) {
             textView = (TextView) item.findViewById(R.id.menu_title);
+            relativeLayout = (LinearLayout) item.findViewById(R.id.menu_item_layout);
         }
     }
 }

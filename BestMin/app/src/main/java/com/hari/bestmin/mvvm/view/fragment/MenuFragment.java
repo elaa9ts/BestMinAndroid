@@ -37,7 +37,7 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_menu, container, false);
+        View view = inflater.inflate(R.layout.fragment_menu, container, false);
         listView = (ListView) view.findViewById(R.id.list_view);
         return view;
     }
@@ -50,14 +50,19 @@ public class MenuFragment extends Fragment implements AdapterView.OnItemClickLis
         adapter = new MenuAdapter(getContext(), list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
+//        Perform click on MenuItem
+        if (list.size() > 0) {
+            listView.performItemClick(listView.getAdapter().getView(0, null, null), 0, listView.getAdapter().getItemId(0));
+        }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         listener.onLeftMenuItemClick(list.get(position), position, true);
+        adapter.setSelectedState(position);
     }
 
-    private void loadMenuData(){
+    private void loadMenuData() {
         list.add("Product");
         list.add("Orders");
         list.add("Add New Product");

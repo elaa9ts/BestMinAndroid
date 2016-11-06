@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:background="@color/menu_item_background"
     android:orientation="horizontal"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:id="@+id/menu_item_layout">
 
     <ImageView
         android:id="@+id/menu_icon"
